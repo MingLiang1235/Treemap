@@ -1,0 +1,97 @@
+<!-- dvlp_overall.html -->
+{% extends 'dvlp_brief.html' %}
+
+{% block content %}
+		{% for message in messages %}
+			<div class='alert-{{ message.tags }}'>{{ message }}</div>
+			<br/>
+		{% endfor %}
+
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#'>我的服务</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffff'>
+				<div class="manage-main">
+					
+					<div class='info-cards'>
+						
+							<div class='info-card' >
+								<div class="card-title">昨日使用额度数</div>
+								<div class="card-main"> {{ Yday_record_used }} </div>
+								<div class="card-bottom">
+									<span class="card-date">{{ The_yesterday }}</span>
+									
+								</div>
+							</div>
+							<div class='info-card' >
+								<div class="card-title">本月使用额度数</div>
+								<div class="card-main"> {{ Lmonth_record_sum }} </div>
+								<div class="card-bottom">
+									<span class="card-date">{{ The_month }}</span>
+									
+								</div>
+							</div>
+							<div class='info-card' >
+								<div class="card-title">总使用额度数</div>
+								<div class="card-main"> {{ Use_record_sum }} </div>
+								<div class="card-bottom">
+
+									<span class="card-tip">剩余生产额度：{{ Remain_credit }}</span>
+								</div>	
+							</div>
+						
+					</div>
+
+					<div class='recent-table'>
+						<div class='recent-title'>
+							<div class='title-left'>查看所有记录</div>
+								<form action='/api/dvlp_overall/dvlp_detail/' method='GET'>
+										{% csrf_token %}
+										
+										<div class='title-left'><span>{{ date_form.from_date }}</span><span>-</span>
+											<span>{{ date_form.to_date }}</span>
+										</div>
+										
+										<input type='submit' value='查询' class='title-left'><br/>
+								</form>
+							</div>
+							<table class='detail-body'>
+								<tr>
+									<th>序号</th>
+									<th>时间</th>
+									<th>生产数</th>
+								</tr>
+								{% for dl in Detail_list %}
+								<tr>
+									{% for u in dl%}
+									<td>{{ u }}</td>
+									{% endfor %}
+								</tr>
+								{% endfor %}
+							</table>
+						</div>
+					
+						<div class='recent-table'>
+							<div class='recent-title'>
+								{% for i in Page_num %}
+									<div class='title-left'><a href='/api/dvlp_overall/dvlp_detail/?index={{ i }}'>{{ i }}</a></div>
+									<!-- index 从1开始算起-->
+								{% endfor %}		
+							</div>
+						</div>
+
+				</div>
+			</div>
+			
+			<!--<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：
+				</p>
+			</div>-->
+		</div>
+		<br/>
+
+{% endblock %}

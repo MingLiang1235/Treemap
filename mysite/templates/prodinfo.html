@@ -1,0 +1,152 @@
+<!-- prodinfo.html -->
+{% extends 'prod_brief.html' %}
+
+{% block content %}
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#'>产品信息</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				{% for message in messages %}
+					<div class='alert-{{ message.tags }}'>{{ message }}</div>
+				{% endfor %}
+				<p>
+					一、服务概述
+				</p>
+				<p>
+					1、什么是树形图？
+				</p>
+				<p>
+					树形图又叫矩形树图，是非常好的数据可视化组件之一。通过大小不等颜色不同排列在视野内的矩形，来标示不同的数据子项，凡是生成具有这一特征的图像结果，都叫做树形图。
+				</p>
+				<p>
+					2、什么是树形图工厂？
+				</p>
+				<p>
+					树形图工厂是优尼科制作工坊专门为了方便在线上生成树形图而建立的网上开放服务平台。服务涵盖树形图API，以及提供制作树形图的demo，说明文档等等服务的总和。
+				</p>
+				<ul>
+					<li>树形图API</li>
+				</ul>
+				<p>
+					用户通过提交树形图生产申请（Http POST），网站收到后，立即自动生成制作树形图所需数据，然后通过http协议返回给用户，用户拿这个数据，编程生成树形图。由于是通用http协议进行交互，用户可以使用多种客户端和本站相连。比如html，php，c#，python，Android app，iOS app，h5，等等。
+				</p>
+				<p>
+					二、服务申请
+				</p>
+				<p>
+					1、如何申请树形图API服务？
+				</p>
+				<p>
+					树形图API采用全程自助申请的模式。请先点击屏幕上方“登录/注册”按钮，然后点击“注册”注册一个用户，填好注册信息后，提交，之后在注册的邮箱里面点击链接来激活帐号。
+				</p>
+				<p>
+					之后再点击“登录/注册”按钮进行登录。登录后在“个人中心”可以看到“开发者信息”里面有一个按钮“申请APP_ID用于使用本站服务”，点击，即完成了申请。申请成功后打开“开发者信息”，即可看到自己的app_id以及secret_key。
+				</p>
+				<p>
+					三、服务计费
+				</p>
+				<p>
+					1、树形图API计费规则是什么？
+				</p>
+				<p>
+					每个用户申请API服务成功，系统都自动免费授予1000点的额度值。每次产生一个树形图，就扣掉1点额度。当额度全部用完时，系统会对该用户暂时停止服务。那么额度的单价是多少呢？树形图工厂大酬宾，每1点额度一分钱。如果额度用完，可以在“个人中心”-“缴费”里面支付100元，买到10000点额度，如此而已。
+				</p>
+				<p>
+					2、如何对账户进行充值？
+				</p>
+				<p>
+					由于目前树形图制造厂仅能扫码缴费，带来的不便我们会尽快予以解决，敬请谅解。
+				</p>
+				<p>
+					四、本网站能给您带来什么好处
+				</p>
+				<p>
+					本网站既是初学者的乐园，也为专业人士提供了服务。
+				</p>
+				<p>
+					通过本网站demo和文档，可以学习python编程的基本知识，学习php编程的基本知识。哪怕对于编程初学者，使用各种语言，都可以很好的使用API进行编程。
+				</p>
+				<p>
+					对于各行业，树形图都有应用，如新闻，地质，教育，统计，企业管理等等领域的专业编程人员，本网站提供的树形图服务可以让您的数据可视化页面和程序得到功能的丰富和界面的提升。
+				</p>
+				<p>
+					而对于编程爱好者，甚至少儿编程来说，本网站都是不错的入门网站，可以学习http编程。
+				</p>
+				<p>
+					总之，本网站可以有效地帮到您的地方是很多的，请一一加以探索。
+				</p>
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布人：树形图制造厂 管理员 发布时间：2019-10-25
+				</p>
+			</div>
+		</div>
+		<br/>
+	
+{% endblock %}
+
+<!--<h2>创建模态框（Modal）</h2>-->
+<!-- 按钮触发模态框 -->
+<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	登录
+</button>
+<p>{{ user_name }}</p>-->
+<!-- 模态框（Modal） -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					TreeMap  用户名密码登录
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form name='login'  method='POST'>
+					{% csrf_token %}
+					<table border="0">
+						<tr>
+							<td align='right'>
+								<label for='user_id'>您在本站的用户名：</label>
+							</td>
+							<td>
+								<input id='user_id' type='text' name='user_id'>
+							</td>
+						</tr>
+						<tr>
+							<td align='right'>
+								<label for='user_pass' >您的密码：</label>
+							</td>
+							<td>
+								<input id='user_pass' type='password' name='user_pass'>
+							</td>
+						</tr>
+						<tr>
+							<td/>
+							<td>
+								<input type='submit' class="btn btn-default" value='登录'> -->
+								<!--<input type='reset' class="btn btn-default" value='清除重填'>-->
+<!-- 								<button type="button" class="btn btn-default" data-dismiss="modal">取消
+							</td>
+						</tr>
+					</table>
+				</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				
+				<button type="button" class="btn btn-primary">
+					尚未注册？
+				</button>
+			</div>
+		</div> --><!-- /.modal-content -->
+	<!-- </div> --><!-- /.modal -->
+<!-- </div>
+</body>
+</html>  -->

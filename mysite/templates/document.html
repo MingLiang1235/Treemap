@@ -1,0 +1,294 @@
+<!-- index.html -->
+{% extends 'doc_brief.html' %}
+
+{% block content %}
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#' name="anchor1">API文档</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				{% for message in messages %}
+					<div class='alert-{{ message.tags }}'>{{ message }}</div>
+				{% endfor %}
+				
+				<h4>
+					如何使用树形图API
+				</h4>
+				<p>
+					1、登录树形图制造厂网站（http://treemap.me);
+				</p>
+				<p>
+					2、注册成为开发者，获得APPID;
+				</p>
+				<p>
+					3、参考技术文档和Demo编写代码。
+				</p>
+				<br/>
+				<h4>
+					接入方式
+				</h4>
+				<p>
+					树形图API通过HTTP接口提供树形图生产服务。您只需要调用树形图API，传入待生成的内容，就可以得到相应的树形图返回结果。
+				</p>
+				<p>
+					树形图API HTTP地址：
+				</p>
+				<p>
+					http://treemap.me/api/treat_data
+				</p>
+				
+				<table class="input_arg_table" border="1px solid" style="text-align:center;background-color:#ffffff">
+					<caption>输入参数:</caption>
+
+					<tr bgcolor='#efefef'>
+						<th>字段名</th>
+						<th>类型</th>
+						<th>必填参数</th>
+						<th style="text-align:center;">描述</th>
+						<th style="text-align:center;">备注</th>
+					</tr>
+					<tr>
+						<td>width</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>树形图总宽度</td>
+						<td>数值转成字符，比如“1000”</td>
+					</tr>
+					<tr>
+						<td>height</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>树形图总高度</td>
+						<td>数值转成字符，比如“500”</td>
+					</tr>
+					<tr>
+						<td>sites</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>树形图内各数据项列表</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>app_id</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>APPID</td>
+						<td>可在“个人中心”查看</td>
+					</tr>
+					<tr>
+						<td>sign</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>签名</td>
+						<td>appid+salt+secretkey后，编码成UTF-8，之后再MD5的值</td>
+					</tr>
+					<tr>
+						<td>salt</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>随机数</td>
+						<td>请先转为字符，再使用</td>
+					</tr>
+
+				</table>
+				<table border="1px solid" text-align="center"style="text-align:center;background-color:#ffffff">
+					<caption>上表中sites列表中每一项的内容:</caption>
+					<tr bgcolor='#efefef'>
+						<th>字段名</th>
+						<th>类型</th>
+						<th>必填参数</th>
+						<th style="text-align:center;">描述</th>
+						<th style="text-align:center;">备注</th>
+					</tr>
+					<tr>
+						<td>name</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>数据项名称</td>
+						<td>两个数据项的名称可相同，但不建议这么做（会减低可读性，返回的数值也不好进一步处理）。建议填写数据项ID</td>
+					</tr>
+					<tr>
+						<td>pos</td>
+						<td>TEXT</td>
+						<td>N</td>
+						<td>数据项在树形图中的位置</td>
+						<td>为返回参数，调用的时候可填写[0,0]列表</td>
+					</tr>
+					<tr>
+						<td>w</td>
+						<td>TEXT</td>
+						<td>N</td>
+						<td>数据项在树形图中的宽度</td>
+						<td>为返回参数，调用的时候可填写“0”。</td>
+					</tr>
+					<tr>
+						<td>h</td>
+						<td>TEXT</td>
+						<td>N</td>
+						<td>数据项在树形图中的高度</td>
+						<td>为返回参数，调用的时候可填写“0”。</td>
+					</tr>
+					<tr>
+						<td>size</td>
+						<td>TEXT</td>
+						<td>Y</td>
+						<td>数据项数值大小</td>
+						<td>必填，整数值，如“32965”</td>
+					</tr>
+				</table>
+				<br/>
+				<p>
+					请求方式：可使用POST方式,Content-Type请指定为content_type="application/json,charset=utf-8"
+				</p>
+				<p>
+					字符编码：统一使用UTF-8编码格式
+				</p>
+				<p>
+					签名生成方法：签名是为了保证调用安全，使用MD5算法生成的一段字符串。
+				</p>
+				<p>
+					具体生成方法为：
+				</p>
+				<p>
+					Step1：将请求参数中的APPID（appid），随机数（salt），以及平台分配的密钥（secret key），按
+				</p>
+				<p>
+					appid+salt+secret_key的顺序拼接得到字符串1
+				</p>
+				<p>
+					Step2：将字符串1转码为UTF-8格式编码得到字符串2
+				</p>
+				<p>
+					Step3：对字符串2做MD5，得到32位小写的sign。
+				</p>
+				<p>
+				<br/>
+				</p>
+				<p>
+					错误码列表
+				</p>
+				<p>
+					当树形图结果无法正常返回时，返回参数“error”，该参数的返回值参考下表：
+				</p>
+				<p>
+					<table border="1px solid" text-align="center"style="text-align:center;background-color:#ffffff">
+						<tr bgcolor='#efefef'>
+							<th>错误码</th>
+							<th style="text-align:center;">含义</th>
+							<th style="text-align:center;">解决方法</th>
+						</tr>
+						<tr>
+							<td>52001</td>
+							<td>"Invalid app_id/secret_key,please try again"“提供了错误的APP_ID/Secret_key组合，无法进行服务”</td>
+							<td>提供签名的时候请提供正确的APP_ID，Secret_key</td>
+						</tr>
+						<tr>
+							<td>52002</td>
+							<td>"CreditPoint used off，please recharge."“信用额度用完，请联系管理员添加信用额度”</td>
+							<td>您获得的初始信用额度/购买的附加信用额度都已用完，请联系管理员获得新的信用额度</td>
+						</tr>
+					</table>
+				</p>
+				<p>
+					
+				</p>
+				<p>
+					
+				</p>
+				<p>
+					
+				</p>
+				<p>
+					
+				</p>
+
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：2019-10-25
+				</p>
+			</div>
+		</div>
+		<br/>
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#' name="anchor2">各语言Demo</a>
+				</p>
+			</div>
+			{% load static %}
+			<div class='panel-body'>
+				<p>Python (<a href="{% static "/programme/Python.zip"%}">点击下载</a>)</p>
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：2019-10-27
+				</p>
+			</div>
+		</div>
+	
+{% endblock %}
+
+<!--<h2>创建模态框（Modal）</h2>-->
+<!-- 按钮触发模态框 -->
+<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	登录
+</button>
+<p>{{ user_name }}</p>-->
+<!-- 模态框（Modal） -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					TreeMap  用户名密码登录
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form name='login'  method='POST'>
+					{% csrf_token %}
+					<table border="0">
+						<tr>
+							<td align='right'>
+								<label for='user_id'>您在本站的用户名：</label>
+							</td>
+							<td>
+								<input id='user_id' type='text' name='user_id'>
+							</td>
+						</tr>
+						<tr>
+							<td align='right'>
+								<label for='user_pass' >您的密码：</label>
+							</td>
+							<td>
+								<input id='user_pass' type='password' name='user_pass'>
+							</td>
+						</tr>
+						<tr>
+							<td/>
+							<td>
+								<input type='submit' class="btn btn-default" value='登录'> -->
+								<!--<input type='reset' class="btn btn-default" value='清除重填'>-->
+<!-- 								<button type="button" class="btn btn-default" data-dismiss="modal">取消
+							</td>
+						</tr>
+					</table>
+				</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				
+				<button type="button" class="btn btn-primary">
+					尚未注册？
+				</button>
+			</div>
+		</div> --><!-- /.modal-content -->
+	<!-- </div> --><!-- /.modal -->
+<!-- </div>
+</body>
+</html>  -->

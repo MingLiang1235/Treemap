@@ -1,0 +1,12 @@
+<!-- footer.html -->
+{% block footer %}
+	{% if now %}
+		<p style='font-family:微软雅黑;'>现在时刻：{{ now }}</p>
+	
+		<p>联系我们：
+			<a style='font-family:微软雅黑;' href="mailto:unicoder@sohu.com">unicoder@sohu.com</a>
+		</p>
+	{% else %}
+		<p> 本站内容来自unicoder软件工坊，如使用中遇到任何问题，请联系客服<a href="mailto:unicoder@sohu.com">unicoder@sohu.com</a>。 ©2019-2020 版权所有 </p>
+	{% endif %}
+{% endblock %}

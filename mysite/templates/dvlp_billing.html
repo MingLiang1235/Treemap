@@ -1,0 +1,75 @@
+<!-- dvlp_billing.html -->
+{% extends 'dvlp_brief.html' %}
+
+{% block content %}
+		{% for message in messages %}
+			<div class='alert-{{ message.tags }}'>{{ message }}</div>
+			<br/>
+		{% endfor %}
+
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#'>缴费</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffff'>
+				{% load static %}
+				<div class="manage-main">
+					<p>为了网站能够良好维护，提供给您持续的编程乐趣，请捐款（100元）。非常感谢。</p>
+					<p>
+						<input class="btn" type=button value="微信" >
+					</p>
+					<p>
+						<img id="wx" src="{% static "images/weixin.jpg" %}" alt="weixinzhifu" height="500"  border="0" style="display:none">
+					</p>
+					<p>
+						<input class="btn" type=button value="支付宝" onclick="showzhifubao()">
+					</p>
+					<p>
+						<img id="zfb" src="{% static "images/zhifubao.jpg"%}" alt="zhifubaozhifu" height="500" border="0" style="display:none">
+					</p>
+					<hr/>
+					<p>为了网站能够继续为您提供服务，帮助您应用树形图和数据可视化编程，请捐款（50元）。非常感谢。</p>
+					<p>
+						<input class="btn" type=button value="微信" >
+					</p>
+					<p>
+						<img id="wx5" src="{% static "images/weixin5.png" %}" alt="weixinzhifu5" height="500"  border="0" style="display:none">
+					</p>
+					<p>
+						<input class="btn" type=button value="支付宝" onclick="showzhifubao()">
+					</p>
+					<p>
+						<img id="zfb5" src="{% static "images/zhifubao5.jpg"%}" alt="zhifubaozhifu5" height="500"  border="0" style="display:none">
+					</p>
+					<p>如果额度用完，并且捐过款，请联系管理员进行协助。</p>
+				</div>
+
+			</div>
+			
+			<!--<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：
+				</p>
+			</div>-->
+		</div>
+		<br/>
+		<script>
+		$(document).ready(function(){
+		$(".btn").removeAttr("onclick");
+		$(".btn").click(function(){
+			//alert("按钮被点击了！");
+			//$(this).fadeOut();
+			//$(this).parent().next().children().first().css("display","block");
+			if ($(this).parent().next().children().first().css("display")=="none")
+				{//alert("css : none.");
+					$(this).parent().next().children().first().css("display","block");
+				}  else $(this).parent().next().children().first().css("display","none");
+		});
+
+
+		});
+		</script>
+
+{% endblock %}

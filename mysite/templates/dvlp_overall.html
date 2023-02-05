@@ -1,0 +1,96 @@
+<!-- dvlp_overall.html -->
+{% extends 'dvlp_brief.html' %}
+
+{% block content %}
+		{% for message in messages %}
+			<div class='alert-{{ message.tags }}'>{{ message }}</div>
+			<br/>
+		{% endfor %}
+
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#'>个人中心-总揽</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffff'>
+				<div class="manage-main">
+					
+					<div class='info-cards'>
+						
+							<div class='info-card' >
+								<div class="card-title">昨日使用额度数</div>
+								<div class="card-main"> {{ Yday_record_used }} </div>
+								<div class="card-bottom">
+									<span class="card-date">{{ The_yesterday }}</span>
+									
+								</div>
+							</div>
+							<div class='info-card' >
+								<div class="card-title">本月使用额度数</div>
+								<div class="card-main"> {{ Lmonth_record_sum }} </div>
+								<div class="card-bottom">
+									<span class="card-date">{{ The_month }}</span>
+									
+								</div>
+							</div>
+							<div class='info-card' >
+								<div class="card-title">总使用额度数</div>
+								<div class="card-main"> {{ Use_record_sum }} </div>
+								<div class="card-bottom">
+
+									<span class="card-tip">剩余生产额度：{{ Remain_credit }}</span>
+								</div>	
+							</div>
+						
+					</div>
+
+					<div class='recent-table'>
+						<div class='recent-title'>
+							<div class='title-left'>最近使用记录</div>
+							<div class="title-right"><a href="/api/dvlp_overall?req=detail">查看所有记录</a></div>
+						</div>
+						<table class='recent-body'>
+							<tr>
+								<th>序号</th>
+								<th>时间</th>
+								<th>生产数</th>
+							</tr>
+							{% for u_r in Use_record %}
+							<tr>
+								{% for u in u_r%}
+								<td>{{ u }}</td>
+								{% endfor %}
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class='panel-body' style='background-color:#ffffff'>
+				<h4>基本信息</h4>
+				<p>开发者类型：<bm>个人开发者</bm></p>
+				<p>您的姓名：{{ user.username }}</p>
+				<p>您的邮箱：{{ user.email }}</p>
+			
+				<br/>
+				<br/>
+				{% if app_id %}
+					<h4>申请信息</h4>
+					<h3 class='name-label'> 您的app id : <span>{{ app_id }}</span></h3>
+					<h3 class='name-label'> 您的secret key : <span>{{ secret_key }} </span></h3>
+				{% else %}
+					<h4>申请信息</h4>
+					<h3 class='name-label'> 您的app id :</h3>
+					<h3 class='name-label'> 您的secret key :</h3>
+				{% endif %}
+			</div>
+			<!--<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：
+				</p>
+			</div>-->
+		</div>
+		<br/>
+
+{% endblock %}

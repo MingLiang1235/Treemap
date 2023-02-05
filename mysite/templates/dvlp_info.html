@@ -1,0 +1,134 @@
+<!-- dvlp_info.html -->
+{% extends 'dvlp_brief.html' %}
+
+{% block content %}
+		{% for message in messages %}
+			<div class='alert-{{ message.tags }}'>{{ message }}</div>
+			<br/>
+		{% endfor %}
+
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#'>开发者信息</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffff'>
+				{% if app_id %}
+					<h3 class='name-label'> 您的app id : <span class='appid'>{{ app_id }}</span></h3>
+					<h3 class='name-label'> 您的secret key : <span class='appid'>{{ secret_key }} </span></h3>
+					<p>
+						请妥善保管好这两个数据，本站的服务都需要您提供这两个数据作为凭证。
+					</p>
+				{% elif error %}
+					<h3> 产生appid时发生错误，请再试。</h3>
+					<p>{{ error }}</p>
+				{% else %}
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="send">申请APP_ID用于使用本站服务</button>	
+				{% endif %}
+			</div>
+			<div class='panel-body' style='background-color:#ffffff'>
+				<h5>基本信息</h5>
+				<p>开发者类型：<bm>个人开发者</bm></p>
+				<p>您的姓名：{{ user.username }}</p>
+				<p>您的邮箱：{{ user.email }}</p>
+			</div>
+			<!--<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：
+				</p>
+			</div>
+			-->
+		</div>
+		<br/>
+		<script>
+		    $("#send").click(function () {
+		        {#json数据#}
+		        var post_data={
+		            "name":"gen_app_id",
+		        };
+
+		        $.ajax({
+		            url:"http://treemap.me/api/generate_app_id",
+		            type:"POST",
+		            {#发送json数据到服务器#}
+		            data:post_data,
+
+		            {#请求成功回调函数#}
+		            success:function (data) {
+		                {#alert(data)#}
+		                alert("请求成功")
+		                location.reload(true);     
+
+		            },
+		            {#请求失败回调函数#}
+		            error:function () {
+		                alert("服务器请求超时,请重试!")
+		            }
+
+		        });
+		    });
+		</script>
+{% endblock %}
+
+<!--<h2>创建模态框（Modal）</h2>-->
+<!-- 按钮触发模态框 -->
+<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	登录
+</button>
+<p>{{ user_name }}</p>-->
+<!-- 模态框（Modal） -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					TreeMap  用户名密码登录
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form name='login'  method='POST'>
+					{% csrf_token %}
+					<table border="0">
+						<tr>
+							<td align='right'>
+								<label for='user_id'>您在本站的用户名：</label>
+							</td>
+							<td>
+								<input id='user_id' type='text' name='user_id'>
+							</td>
+						</tr>
+						<tr>
+							<td align='right'>
+								<label for='user_pass' >您的密码：</label>
+							</td>
+							<td>
+								<input id='user_pass' type='password' name='user_pass'>
+							</td>
+						</tr>
+						<tr>
+							<td/>
+							<td>
+								<input type='submit' class="btn btn-default" value='登录'> -->
+								<!--<input type='reset' class="btn btn-default" value='清除重填'>-->
+<!-- 								<button type="button" class="btn btn-default" data-dismiss="modal">取消
+							</td>
+						</tr>
+					</table>
+				</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				
+				<button type="button" class="btn btn-primary">
+					尚未注册？
+				</button>
+			</div>
+		</div> --><!-- /.modal-content -->
+	<!-- </div> --><!-- /.modal -->
+<!-- </div>
+</body>
+</html>  -->

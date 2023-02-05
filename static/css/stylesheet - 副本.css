@@ -1,0 +1,354 @@
+body {
+	background-color: #ffffff;
+	/*color: #000000;*/
+	margin: 15px 15px;
+	padding: 0px 0px;
+}
+
+/* main */
+
+table.main {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td.mainmenu {
+	text-align: left;
+	vertical-align: top;
+	padding: 0px 0px;
+	width: 200px;
+}
+
+td.maincontent {
+	text-align: left;
+	vertical-align: top;
+	padding: 0px 0px;
+}
+
+td.mainmenu p.center {
+	text-align: center;
+	margin: 4pt 0pt 4pt 0pt;
+}
+
+/* header */
+
+table.header {
+	margin: 0px 0px;
+	width: 100%;
+	empty-cells: show;
+}
+tr.headertitle{
+	position: relative;
+}
+
+td.headertitle {
+	border-top: 1px solid #5555bb;
+	border-left: 1px solid #5555bb;
+	border-right: 1px solid #5555bb;
+	background-image: url('img/headerbg.png');
+	background-color: #111144;
+	color: #336699;
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	padding: 6pt 8pt 3pt 8pt;
+	vertical-align: top;
+}
+td.headertitle a {
+	text-decoration: none;
+}
+td.headertitle h1 {
+	color: #3377aa;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 24pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0pt 100pt 3pt 0pt;
+}
+
+td.headertitle p {
+	text-align: left;
+	margin: 0pt 0pt 3pt 0pt;
+}
+td.headertitle h3.headertitle-button{
+	text-align: right;
+	margin: 0pt 0pt 0pt 0pt;
+}
+
+/*td.headertitle button.headertitle-button{
+  position: absolute;
+  right:40px;
+  top:30px;
+}*/
+
+td.headertitle-div{
+	position:static; 
+	text-align: center;
+	width:120px;
+	margin-top:5px;
+	margin-left:auto;
+	margin-right:0;
+}
+td.headerbuttonleft,
+td.headerbuttonleftactive,
+td.headerbuttonempty,
+td.headerbuttonright,
+td.headerbuttonrightactive {
+	border-top: 1px solid #666688;
+	border-bottom: 1px solid #666688;
+	background-image: url('img/buttonbg.png');
+	background-repeat: repeat-x;
+	background-color: #777777;
+	color: white;
+	text-align: center;
+	white-space: nowrap;
+	font-family: 微软雅黑,Verdana, Arial, Sans-Serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bolder;
+	text-decoration: none;
+	padding: 0px 0px;
+	height: 30px;
+	vertical-align: middle;
+}
+td.headerbuttonleft,
+td.headerbuttonleftactive {
+	border-left: 1px solid #666688;
+	width: 60px;
+}
+td.headerbuttonempty {
+	border-left: 1px solid #666688;
+	border-right: 1px solid #666688;
+}
+td.headerbuttonright,
+td.headerbuttonrightactive {
+	border-right: 1px solid #666688;
+	width: 60px;
+}
+td.headerbuttonleftactive,
+td.headerbuttonrightactive {
+	background-image: url('img/buttonbgactive.png');
+	background-repeat: repeat-x;
+	background-color: #666666;
+}
+
+td.headerbuttonleft a,
+td.headerbuttonleftactive a,
+td.headerbuttonright a,
+td.headerbuttonrightactive a {
+	text-align: center;
+	text-decoration: none;
+	padding: 0px 0px;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	display: block;
+}
+
+td.headerbuttonleft a:hover,
+td.headerbuttonleftactive a:hover,
+td.headerbuttonright a:hover,
+td.headerbuttonrightactive a:hover {
+	background-image: url('img/buttonbghover.png');
+	background-repeat: repeat-x;
+	background-color: #555555;
+}
+
+td.headerbuttonleft a span,
+td.headerbuttonleftactive a span,
+td.headerbuttonright a span,
+td.headerbuttonrightactive a span {
+	color: white;
+	margin: 0px 10px;
+	position: relative;
+	top: 3px;
+}
+td.headerbuttonleft a:hover span,
+td.headerbuttonleftactive a:hover span,
+td.headerbuttonright a:hover span,
+td.headerbuttonrightactive a:hover span,
+td.headerbuttonleft a:active span,
+td.headerbuttonleftactive a:active span,
+td.headerbuttonright a:active span,
+td.headerbuttonrightactive a:active span {
+	color: white;
+	font-weight: bolder;
+	text-decoration: none;
+}
+td.headerbuttonleft a:focus span,
+td.headerbuttonleftactive a:focus span,
+td.headerbuttonright a:focus span,
+td.headerbuttonrightactive a:focus span {
+	outline: 1px dotted;
+}
+
+/* menu */
+
+div.block {
+	border: 1px solid #8888aa;
+	background-image: url('img/blockbg.png');
+	background-repeat: repeat-x;
+	background-color: #eeeeee;
+	color: white;
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 10px 0px 10px 0px;
+	padding: 0px 9px 3px 9px;
+	width: 180px;
+	vertical-align: top;
+	overflow: hidden;
+}
+
+div.block hr {
+	border: 0px;
+	border-top: 1px solid #8888aa;
+	margin: 5px 0px 5px 0px;
+	width: 100%;
+	height: 0px;
+}
+
+div.block h5 {
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 5px 0px 5px 0px;
+}
+
+div.block p {
+	text-align: left;
+	margin: 5px 0px 5px 0px;
+}
+
+div.block a {
+	color: #5577cc;
+	text-decoration: none;
+}
+div.block a:hover,
+div.block a:active {
+	text-decoration: underline;
+}
+
+div.block a.blocklink {
+	color: white;
+	text-decoration: none;
+	padding: 2px 3px;
+	display: block;
+}
+div.block a.blocklink span {
+	color: #5577cc;
+}
+div.block a.blocklink:hover,
+div.block a.blocklink:active {
+	text-decoration: none;
+	background-color: #dddddd;
+}
+div.block a.blocklink:hover span,
+div.block a.blocklink:active span {
+	text-decoration: underline;
+}
+
+/* content */
+
+div.content {
+	background-color: #ffffff;
+	color: white;
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 9pt;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 15px 10px 10px 20px;
+	padding: 0pt 0pt 0pt 0pt;
+	overflow: hidden;
+}
+
+div.content hr {
+	border: 0px;
+	border-top: 1px solid #aaaaaa;
+	margin: 12pt 0pt 12pt 0pt;
+	width: 100%;
+	height: 0px;
+	clear: both;
+}
+
+div.content h1 {
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 18pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0pt 40pt 6pt 0pt;
+}
+
+div.content h2 {
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 15pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 12pt 40pt 6pt 0pt;
+}
+div.content h3 {
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 13pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 12pt 40pt 6pt 0pt;
+}
+div.content h4 {
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 11pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 12pt 40pt 6pt 0pt;
+}
+
+div.content h6 {
+	text-align: left;
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 9pt;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: underline;
+	margin: 12pt 0pt 6pt 0pt;
+}
+
+div.content p {
+	text-align: justify;
+	margin: 6pt 0pt 6pt 0pt;
+}
+div.content p.center {
+	text-align: center;
+}
+
+div.content ul,
+div.content ol {
+	margin: 6pt 0pt 6pt 0pt;
+	padding: 0pt 0pt 0pt 24pt;
+}
+
+div.content a {
+	color: #5577cc;
+	text-decoration: none;
+}
+div.content a:hover,
+div.content a:active {
+	text-decoration: underline;
+}

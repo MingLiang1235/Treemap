@@ -1,0 +1,233 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+{% block title %} 矩形树图制造厂 {% endblock %}
+{% block menu %}
+	<div class='list-group'>
+		<a href='#anchor1' class='list-group-item'>工厂简介</a>
+		<a href='#anchor2' class='list-group-item'>产品简介</a>
+		<a href='#anchor3' class='list-group-item'>产品应用</a>
+	</div>	
+{% endblock %}
+{% block headmessage %}
+	<!-- <h3 style='font-family:微软雅黑;'>{% now "F j Y H:i:s" %}<h3> -->
+{% endblock %}
+{% block content %}
+		{% for message in messages %}
+			<div class='alert-{{ message.tags }}'>{{ message }}</div>
+			<br/>
+		{% endfor %}
+		<!-- 	<div class='alter-{{ message.tags }}'>{{ message }}</div> 这一行没用。因为message出了for范围就不存在了。-->
+		<!--<div >{{ messages }}</div>-->
+
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#' name='anchor1'>工厂简介</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				
+				<p>
+					大数据分析，怎么可能少了矩形树图！
+				</p>
+				<p>
+					本工厂是专门生产矩形树图的数据加工制造工厂
+				</p>
+				<p>
+					本工厂的建立日期是2019年9月
+				</p>
+				<p>
+					本工厂的建厂地址是互联网 www.treemap.me 
+				</p>
+				<p>
+					本工厂的建厂宗旨是多快好省地为广大数据可视化建设者，矩形树图爱好者提供充足的武器弹药。
+					本质是提供API，在开发一种软件过程中将专门的功能制成API，供其他开发者调用。
+				</p>
+				<p>
+					本工厂的产品目前只有一个大类，就是矩形树图，英文名称Treemap。
+				</p>
+				<p>
+					本工厂是自动化工厂
+				</p>
+				<p>
+					本工厂的request一旦提交，即时生产上传，保证网络用户随时随地7X24小时可实时获取矩形树图。
+				</p>
+				<p>
+					本工厂的矩形树图生产速度很快，延迟在毫秒之间，可以很方便地用于网上各种实时使用矩形树图的场合。
+				</p>
+				<p>
+					本工厂的服务类别是Saas，即“软件即服务”，方便广大数据可视化爱好者。超过一定数量后，本工厂生产的矩形树图是要收费的。
+				</p>
+				<p>
+					本工厂的现任厂长是unicoder，如果您对产品和设计或任何其他任何问题，请邮件联系。联系地址  <a href='mailto:unicoder@sohu.com'>unicoder@sohu.com</a>
+				</p>
+				
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：2019-9-6 15:59
+				</p>
+			</div>
+		</div>
+		<br/>
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#' name="anchor2">产品简介</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				
+				<p>
+					产品名称：矩形树图，又名树形图，Treemap。
+				</p>
+				<p>
+					产品用途：是数据可视化的元素之一。
+				</p>
+				<p>
+					制造方法：用户提交一个总图的尺寸，以及各个数据项的数值，工厂按照用户提供的数据，实时生成一张包含所有数据项的矩形树图规划图，即生成每一个矩形项的尺寸，位置。
+				</p>
+				<p>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp用户得到这一规划，便可生成矩形树图了。具体由“文档与支持”栏目详述。 
+				</p>
+				
+				
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：2019-9-6 15:59
+				</p>
+			</div>
+		</div>
+
+		<div class='panel panel-default' id="tshirts">
+			<div class='panel-heading'>
+				<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+					<a href='#' name="anchor3">产品应用</a>
+				</p>
+			</div>
+			<div class='panel-body' style='background-color:#ffffdd'>
+				{% load static %}
+				<div class="container-fluid">
+					<div class='row'>
+						<div class='col-sm-5 col-md-4' >
+							<img src="{% static "images/dc_scaned_3.png"%}" width="100%">
+							<p>该程序使用矩形树图展示windows系统文件的大小。</p>
+						</div>
+						<div class='col-sm-5 col-md-4' >
+							<img src="{% static "images/d_scaned.png"%}"  width="100%">
+							<p>这是另一幅硬盘的矩形树图</p>
+						</div>
+						<div class='col-sm-5 col-md-4'>
+							<img src="{% static "images/d_scaned_2.png"%}"  width="100%">
+							<p>这是按大小排序的矩形树图</p>
+						</div>
+					</div>
+					<div class='row'>
+						<h4> 矩形树图应用简例</h4>
+						<ul>
+							<li>
+								<div class='c-container'>
+									<h5 class='c-title'>驭数有“树”——矩形树图的可视化之术</h5>
+									<div class='c-span6'>
+										<a class='c-img' style="height:75px" href="https://www.sohu.com/a/207008908_416207" target="_blank">
+											<img class="c-img" src="https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=3186143522,2651967788&amp;fm=85&amp;s=79526090779755DA8F39AE5A030010FA" style="height:75px;">
+										</a>
+									</div>
+									<div class='c-span12'>
+										<a href='https://www.sohu.com/a/207008908_416207' target="_blank">驭数有“树”——矩形树图的可视化之术</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class='row'>
+						<ul>
+							<li>
+								<div class='c-container'>
+									<h5 class='c-title'>矩形树图的历史</h5>
+									<div class='c-span6'>
+										<a class='c-img' style='height:75px' href="http://www.cs.umd.edu/hcil/treemap-history/" target="_blank">
+											<img class="c-img" src="http://www.cs.umd.edu/hcil/treemap-history/treemap-nba.gif" style="height:75px">
+										</a>
+									</div>
+									<div class='c-span12'>
+										<a href='http://www.cs.umd.edu/hcil/treemap-history/' target="_blank">矩形树图的历史</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class='panel-footer' style='background-color:#efefef'>
+				<p>
+					发布时间：2019-9-6 15:59
+				</p>
+			</div>
+		</div>
+		<br/>
+	
+{% endblock %}
+
+<!--<h2>创建模态框（Modal）</h2>-->
+<!-- 按钮触发模态框 -->
+<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	登录
+</button>
+<p>{{ user_name }}</p>-->
+<!-- 模态框（Modal） -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					TreeMap  用户名密码登录
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form name='login'  method='POST'>
+					{% csrf_token %}
+					<table border="0">
+						<tr>
+							<td align='right'>
+								<label for='user_id'>您在本站的用户名：</label>
+							</td>
+							<td>
+								<input id='user_id' type='text' name='user_id'>
+							</td>
+						</tr>
+						<tr>
+							<td align='right'>
+								<label for='user_pass' >您的密码：</label>
+							</td>
+							<td>
+								<input id='user_pass' type='password' name='user_pass'>
+							</td>
+						</tr>
+						<tr>
+							<td/>
+							<td>
+								<input type='submit' class="btn btn-default" value='登录'> -->
+								<!--<input type='reset' class="btn btn-default" value='清除重填'>-->
+<!-- 								<button type="button" class="btn btn-default" data-dismiss="modal">取消
+							</td>
+						</tr>
+					</table>
+				</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				
+				<button type="button" class="btn btn-primary">
+					尚未注册？
+				</button>
+			</div>
+		</div> --><!-- /.modal-content -->
+	<!-- </div> --><!-- /.modal -->
+<!-- </div>
+</body>
+</html>  -->
